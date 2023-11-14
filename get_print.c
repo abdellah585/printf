@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_print - Returns a pointer to the appropriate print
+ * get_print - Returns a Pointer To The appropriate print
  * function based on the format specifier.
  * @format: The format specifier.
  * Return: pointer to the appropriate print function,

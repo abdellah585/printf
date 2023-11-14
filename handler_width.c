@@ -4,7 +4,7 @@ int _isdigit(int c);
 int num_length(int (*pfn)(va_list), va_list args_copy);
 
 /**
- * get_width - Retrieve the width of a field from a format string.
+ * get_width - Retrieve the width of a field From a Format string.
  * @format: The format string.
  * @width: pointer to a width_t struct containing the width found.
  * @current_index: Pointer to the current index in the format string
