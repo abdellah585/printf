@@ -7,10 +7,10 @@
  */
 int print_binary(va_list list)
 {
-        char buffer[50]; 
-        unsigned int num = va_arg(list, unsigned int);
+	char buffer[50];
+	unsigned int num = va_arg(list, unsigned int);
 
-        return (to_base_n(num, 2, buffer));
+	return (to_base_n(num, 2, buffer));
 }
 
 /**
@@ -20,10 +20,10 @@ int print_binary(va_list list)
  */
 int print_octal(va_list list)
 {
-        char buffer[50];
-        unsigned int num = va_arg(list, unsigned int);
+	char buffer[50];
+	unsigned int num = va_arg(list, unsigned int);
 
-        return (to_base_n(num, 8, buffer));
+	return (to_base_n(num, 8, buffer));
 }
 
 /**
@@ -33,10 +33,10 @@ int print_octal(va_list list)
  */
 int print_hex(va_list list)
 {
-        char buffer[50];
-        unsigned int num = va_arg(list, unsigned int);
+	char buffer[50];
+	unsigned int num = va_arg(list, unsigned int);
 
-        return (to_base_n(num, 16, buffer));
+	return (to_base_n(num, 16, buffer));
 }
 
 /**
@@ -47,11 +47,11 @@ int print_hex(va_list list)
  */
 int print_HEX(va_list list)
 {
-        char buffer[50];
-        unsigned int num = va_arg(list, unsigned int);
+	char buffer[50];
+	unsigned int num = va_arg(list, unsigned int);
 
-        buffer[0] = 'A';
-        return (to_base_n(num, 16, buffer));
+	buffer[0] = 'A';
+	return (to_base_n(num, 16, buffer));
 }
 
 /**
@@ -61,12 +61,13 @@ int print_HEX(va_list list)
  */
 int print_addrs(va_list list)
 {
-        char buffer[50];
-        void *ptr = va_arg(list, void *);
-        unsigned long address = (unsigned long)ptr;
+	char buffer[50];
+	void *ptr = va_arg(list, void *);
+	unsigned long address = (unsigned long)ptr;
 
-        if (!ptr)
-                return (_puts("(nil)"));
+	if (!ptr)
+		return (_puts("(nil)"));
 
-        return (_puts("0x") + to_base_n(address, 16, buffer));
+	return (_puts("0x") + to_base_n(address, 16, buffer));
 }
+

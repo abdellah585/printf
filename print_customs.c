@@ -7,26 +7,26 @@
  */
 int print_STR(va_list list)
 {
-        int i = 0, count = 0;
-        char *str;
-        char buffer[3];
+	int i = 0, count = 0;
+	char *str;
+	char buffer[3];
 
-        str = va_arg(list, char *);
-        if (!str)
-                str = "(null)";
+	str = va_arg(list, char *);
+	if (!str)
+		str = "(null)";
 
-        for (; str[i]; i++)
-        {
-                if ((str[i] > 0 && str[i] < 32) || (str[i] >= 127))
-                {
-                        (str[i] < 16) ? (count += _puts("\\x0")) : (count += _puts("\\x"));
-                        buffer[0] = 'A';
-                        count += to_base_n(str[i], 16, buffer);
-                }
-                else
-                        count += _putchar(str[i]);
-        }
-        return (count);
+	for (; str[i]; i++)
+	{
+		if ((str[i] > 0 && str[i] < 32) || (str[i] >= 127))
+		{
+			(str[i] < 16) ? (count += _puts("\\x0")) : (count += _puts("\\x"));
+			buffer[0] = 'A';
+			count += to_base_n(str[i], 16, buffer);
+		}
+		else
+			count += _putchar(str[i]);
+	}
+	return (count);
 }
 
 /**
@@ -36,22 +36,22 @@ int print_STR(va_list list)
  */
 int print_rev(va_list list)
 {
-        char *str, buffer[50];
-        int i;
+	char *str, buffer[50];
+	int i;
 
-        str = va_arg(list, char *);
+	str = va_arg(list, char *);
 
-        if (str == NULL)
-                return (_puts("(null)"));
+	if (str == NULL)
+		return (_puts("(null)"));
 
-        for (i = 0; str[i]; i++)
-                buffer[i] = str[i];
+	for (i = 0; str[i]; i++)
+		buffer[i] = str[i];
 
-        buffer[i] = '\0';
+	buffer[i] = '\0';
 
-        reverse_str(buffer);
+	reverse_str(buffer);
 
-        return (_puts(buffer));
+	return (_puts(buffer));
 }
 
 /**
@@ -61,32 +61,33 @@ int print_rev(va_list list)
  */
 int print_rot13(va_list list)
 {
-        char *str = va_arg(list, char *);
-        char c;
-        int i, j, count = 0;
-        char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *str = va_arg(list, char *);
+	char c;
+	int i, j, count = 0;
+	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-        if (str == NULL)
-        {
-                str = "(null)";
-                count += _puts(str);
-                return (count);
-        }
+	if (str == NULL)
+	{
+		str = "(null)";
+		count += _puts(str);
+		return (count);
+	}
 
-        for (i = 0; str[i] != '\0'; i++)
-        {
-                c = str[i];
-                for (j = 0; in[j] != '\0'; j++)
-                {
-                        if (c == in[j])
-                        {
-                                c = out[j];
-                                break;
-                        }
-                }
-                count += _putchar(c);
-        }
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		c = str[i];
+		for (j = 0; in[j] != '\0'; j++)
+		{
+			if (c == in[j])
+			{
+				c = out[j];
+				break;
+			}
+		}
+		count += _putchar(c);
+	}
 
-        return (count);
+	return (count);
 }
+

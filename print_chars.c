@@ -8,8 +8,8 @@
 
 int print_character(va_list list)
 {
-        _putchar(va_arg(list, int));
-        return (1);
+	_putchar(va_arg(list, int));
+	return (1);
 }
 
 /**
@@ -20,17 +20,17 @@ int print_character(va_list list)
 
 int print_string(va_list list)
 {
-        int count = 0;
-        char *str;
+	int count = 0;
+	char *str;
 
-        str = va_arg(list, char *);
-        if (!str)
-                str = "(null)";
+	str = va_arg(list, char *);
+	if (!str)
+		str = "(null)";
 
-        for (; str[count]; count++)
-                _putchar(str[count]);
+	for (; str[count]; count++)
+		_putchar(str[count]);
 
-        return (count);
+	return (count);
 }
 
 /**
@@ -41,8 +41,8 @@ int print_string(va_list list)
 
 int print_percent(va_list list)
 {
-        (void)(list);
-        _putchar('%');
-        return (1);
+	(void)(list);
+	_putchar('%');
+	return (1);
 }
 

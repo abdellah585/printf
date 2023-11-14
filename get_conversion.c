@@ -12,18 +12,19 @@
  */
 
 pfn_t get_conversion(const char *format, int *current_index,
-                va_list args, flags_t *flags, width_t *width)
+		va_list args, flags_t *flags, width_t *width)
 {
-        int (*conversion_func)(va_list);
-        /* Extract flags, width, and length modifiers */
-        get_flags(format, flags, current_index);
-        get_width(format, width, current_index);
-        get_length(format, flags, current_index);
-        /* If width is specified with '*', retrieve it from va_arg */
-        if (width->is_asterisk)
-                width->value = va_arg(args, int);
+	int (*conversion_func)(va_list);
+	/* Extract flags, width, and length modifiers */
+	get_flags(format, flags, current_index);
+	get_width(format, width, current_index);
+	get_length(format, flags, current_index);
+	/* If width is specified with '*', retrieve it from va_arg */
+	if (width->is_asterisk)
+		width->value = va_arg(args, int);
 
-        /* Get the conversion function based on the current specifier */
-        conversion_func = get_print(&format[*current_index]);
-        return (conversion_func);
+	/* Get the conversion function based on the current specifier */
+	conversion_func = get_print(&format[*current_index]);
+	return (conversion_func);
 }
+

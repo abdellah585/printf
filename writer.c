@@ -8,7 +8,7 @@
  */
 int _putchar(char c)
 {
-        return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 /**
@@ -18,10 +18,11 @@ int _putchar(char c)
  */
 int _puts(char *str)
 {
-        int i = 0;
+	int i = 0;
 
-        for (; str[i]; i++)
-                _putchar(str[i]);
+	for (; str[i]; i++)
+		_putchar(str[i]);
 
-        return (i);
+	return (i);
 }
+
